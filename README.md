@@ -1,6 +1,4 @@
-***Note: This module is targeted for CakePHP 3.x.  For CakePHP 2.x please use [cakephp-elixir](https://www.npmjs.com/package/cakephp-elixir) instead.***
-
-# Elixir For CakePHP
+# Elixir For Basic / Non-Framework Web Applications
 
 - [Introduction](#introduction)
 - [Installation & Setup](#installation)
@@ -22,9 +20,9 @@
 <a name="introduction"></a>
 ## Introduction
 
-If you love Elixir, but also love CakePHP, you will love Elixir for CakePHP!
+If you love Elixir, but just need to build a basic/non-framework web application, you will love basic-elixir!
 
-Elixir for CakePHP provides a clean, fluent API for defining basic [Gulp](http://gulpjs.com) tasks for your CakePHP application. Elixir supports common CSS and JavaScript pre-processors like [Sass](http://sass-lang.com) and [Webpack](https://webpack.github.io/). Using method chaining, Elixir allows you to fluently define your asset pipeline. For example:
+Elixir provides a clean, fluent API for defining basic [Gulp](http://gulpjs.com) tasks for your basic/non-framework application. Elixir supports common CSS and JavaScript pre-processors like [Sass](http://sass-lang.com) and [Webpack](https://webpack.github.io/). Using method chaining, Elixir allows you to fluently define your asset pipeline. For example:
 
 ```javascript
 elixir(function(mix) {
@@ -33,7 +31,7 @@ elixir(function(mix) {
 });
 ```
 
-If you've ever been confused and overwhelmed about getting started with Gulp and asset compilation, you will love Elixir for CakePHP. However, you are not required to use it while developing your application. You are free to use any asset pipeline tool you wish, or even none at all.
+If you've ever been confused and overwhelmed about getting started with Gulp and asset compilation, you will love Elixir. However, you are not required to use it while developing your application. You are free to use any asset pipeline tool you wish, or even none at all.
 
 <a name="installation"></a>
 ## Installation & Setup
@@ -53,9 +51,9 @@ Next, you'll need to pull in [Gulp](http://gulpjs.com) as a global NPM package:
 
     npm install --global gulp-cli
 
-#### Elixir For CakePHP
+#### Elixir For Basic / Non-Framework Web Applications
 
-The only remaining step is to install Elixir for CakePHP. To do this you will need a create a file in your root directory named ***[package.json](https://github.com/pfuri/cakephp3-elixir/blob/master/package.example.json)*** and paste in the following:  
+The only remaining step is to install Elixir for basic/non-framework web applications. To do this you will need a create a file in your root directory named ***[package.json](https://github.com/pfuri/basic-elixir/blob/master/package.example.json)*** and paste in the following:  
 
 ```javascript
 {
@@ -68,7 +66,7 @@ The only remaining step is to install Elixir for CakePHP. To do this you will ne
     "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
     "jquery": "^3.1.0",
-    "cakephp3-elixir": "^1.0.5",
+    "basic-elixir": "^1.0.5",
     "laravel-elixir-del": "^0.1.1",
     "laravel-elixir-webpack-official": "^1.0.2",
     "lodash": "^4.16.2"
@@ -86,13 +84,13 @@ If you are developing on a Windows system or you are running your VM on a Window
 
 This process could take a few minutes, so be patient.  Its worth it!
 
-Once complete, you'll notice two new directories and three new files: ***node_modules***, ***resources***, ***elixir.js***, ***gulpfile.js*** & ***View/Helper/ElixirHelper.php***.
+Once complete, you'll notice two new directories and three new files: ***node_modules***, ***resources***, ***elixir.js***, ***gulpfile.js*** & ***node_modules/pfuri/basic-elixir/ElixirHelper.php***.
 
 * ***[node_modules](https://docs.npmjs.com/files/folders#node-modules)***: This is where your Node.js modules are stored
-* ***[resources](https://github.com/pfuri/cakephp3-elixir/tree/master/resources)***: This is where your raw assets are stored (E.g. sass/less, js, coffeescript, etc..)
-* ***[elixir.js](https://github.com/pfuri/cakephp3-elixir/blob/master/elixir.example.json)***: This is the elixir configuration file where you can change the default source & destination folders used by Elixir
-* ***[gulpfile.js](https://github.com/pfuri/cakephp3-elixir/blob/master/elixir.example.json)***: This is where you actually use Elixir *(see below sections for specific instructions & examples)* 
-* ***[View/Helper/ElixirHelper.php](https://github.com/pfuri/cakephp3-elixir/blob/master/ElixirHelper.php)***: This is the CakePHP Helper which is used to provide versioning *(see [Versioning / Cache Busting](#versioning-and-cache-busting))*
+* ***[resources](https://github.com/pfuri/basic-elixir/tree/master/resources)***: This is where your raw assets are stored (E.g. sass/less, js, coffeescript, etc..)
+* ***[elixir.js](https://github.com/pfuri/basic-elixir/blob/master/elixir.example.json)***: This is the elixir configuration file where you can change the default source & destination folders used by Elixir
+* ***[gulpfile.js](https://github.com/pfuri/basic-elixir/blob/master/elixir.example.json)***: This is where you actually use Elixir *(see below sections for specific instructions & examples)* 
+* ***[node_modules/pfuri/basic-elixir/ElixirHelper.php](https://github.com/pfuri/basic-elixir/blob/master/ElixirHelper.php)***: This is a Helper which is used to provide versioning. *Note: You will need to copy this file into to your basic/non-framework application if you wish to use versioning.* *(see [Versioning / Cache Busting](#versioning-and-cache-busting))*
 
 <a name="running-elixir"></a>
 ## Running Elixir
@@ -121,7 +119,7 @@ The `gulpfile.js` file in your project's root directory contains all of your Eli
 <a name="less"></a>
 ### Less
 
-The `less` method may be used to compile [Less](http://lesscss.org/) into CSS. The `less` method assumes that your Less files are stored in `resources/assets/less`. By default, the task will place the compiled CSS for this example in `webroot/css/default.css`:
+The `less` method may be used to compile [Less](http://lesscss.org/) into CSS. The `less` method assumes that your Less files are stored in `resources/assets/less`. By default, the task will place the compiled CSS for this example in `css/default.css`:
 
 ```javascript
 elixir(function(mix) {
@@ -129,7 +127,7 @@ elixir(function(mix) {
 });
 ```
 
-You may also combine multiple Less files into a single CSS file. Again, the resulting CSS will be placed in `webroot/css/default.css`:
+You may also combine multiple Less files into a single CSS file. Again, the resulting CSS will be placed in `css/default.css`:
 
 ```javascript
 elixir(function(mix) {
@@ -144,12 +142,12 @@ If you wish to customize the output location of the compiled CSS, you may pass a
 
 ```javascript
 elixir(function(mix) {
-    mix.less('default.less', 'webroot/stylesheets');
+    mix.less('default.less', 'stylesheets');
 });
 
 // Specifying a specific output filename...
 elixir(function(mix) {
-    mix.less('default.less', 'webroot/stylesheets/style.css');
+    mix.less('default.less', 'stylesheets/style.css');
 });
 ```
 
@@ -171,15 +169,15 @@ elixir(function(mix) {
     mix.sass([
         'default.scss',
         'controllers.scss'
-    ], 'webroot/assets/css');
+    ], 'assets/css');
 });
 ```
 
 #### Custom Paths
 
-While it's recommended that you use Elixir for CakePHP's default asset directories, if you require a different base directory, you may begin any file path with `./`. This instructs Elixir to begin at the project root, rather than using the default base directory.
+If you require a different base directory, you may begin any file path with `./`. This instructs Elixir to begin at the project root, rather than using the default base directory.
 
-For example, to compile a file located at `resources/assets/sass/default.scss` and output the results to `webroot/css/default.css`, you would make the following call to the `sass` method:
+For example, to compile a file located at `resources/assets/sass/default.scss` and output the results to `css/default.css`, you would make the following call to the `sass` method:
 
 ```javascript
 elixir(function(mix) {
@@ -203,7 +201,7 @@ elixir(function(mix) {
 <a name="plain-css"></a>
 ### Plain CSS
 
-If you would just like to combine some plain CSS stylesheets into a single file, you may use the `styles` method. Paths passed to this method are relative to the `resources/assets/css` directory and the resulting CSS will be placed in `webroot/css/all.css`:
+If you would just like to combine some plain CSS stylesheets into a single file, you may use the `styles` method. Paths passed to this method are relative to the `resources/assets/css` directory and the resulting CSS will be placed in `css/all.css`:
 
 ```javascript
 elixir(function(mix) {
@@ -221,7 +219,7 @@ elixir(function(mix) {
     mix.styles([
         'normalize.css',
         'main.css'
-    ], 'webroot/assets/css/site.css');
+    ], 'assets/css/site.css');
 });
 ```
 
@@ -245,12 +243,12 @@ elixir(function(mix) {
 
 Elixir provides several features to help you work with your JavaScript files, such as compiling ECMAScript 2015, module bundling, minification, and simply concatenating plain JavaScript files.
 
-When writing ES2015 with modules, you have your choice between [Webpack](http://webpack.github.io) and [Rollup](http://rollupjs.org/). If these tools are foreign to you, don't worry, Elixir will handle all of the hard work behind the scenes. By default, the CakePHP `gulpfile` uses `webpack` to compile Javascript, but you are free to use any module bundler you like.
+When writing ES2015 with modules, you have your choice between [Webpack](http://webpack.github.io) and [Rollup](http://rollupjs.org/). If these tools are foreign to you, don't worry, Elixir will handle all of the hard work behind the scenes. By default, the `gulpfile` uses `webpack` to compile Javascript, but you are free to use any module bundler you like.
 
 <a name="webpack"></a>
 ### Webpack
 
-The `webpack` method may be used to compile and bundle [ECMAScript 2015](https://babeljs.io/docs/learn-es2015/) into plain JavaScript. This function accepts a file path relative to the `resources/assets/js` directory and generates a single bundled file in the `webroot/js` directory:
+The `webpack` method may be used to compile and bundle [ECMAScript 2015](https://babeljs.io/docs/learn-es2015/) into plain JavaScript. This function accepts a file path relative to the `resources/assets/js` directory and generates a single bundled file in the `js` directory:
 
 ```javascript
 elixir(function(mix) {
@@ -258,13 +256,13 @@ elixir(function(mix) {
 });
 ```
 
-To choose a different output or base directory, simply specify your desired paths with a leading `.`. Then you may specify the paths relative to the root of your application. For example, to compile `resources/assets/js/default.js` to `webroot/dist/default.js`:
+To choose a different output or base directory, simply specify your desired paths with a leading `.`. Then you may specify the paths relative to the root of your application. For example, to compile `resources/assets/js/default.js` to `dist/default.js`:
 
 ```javascript
 elixir(function(mix) {
     mix.webpack(
         './assets/js/default.js',
-        './webroot/dist'
+        './dist'
     );
 });
 ```
@@ -275,7 +273,7 @@ If you'd like to leverage more of Webpack's functionality, Elixir will read any 
 <a name="rollup"></a>
 ### Rollup
 
-Similar to Webpack, Rollup is a next-generation bundler for ES2015. This function accepts an array of files relative to the `resources/assets/js` directory, and generates a single file in the `webroot/js` directory:
+Similar to Webpack, Rollup is a next-generation bundler for ES2015. This function accepts an array of files relative to the `resources/assets/js` directory, and generates a single file in the `js` directory:
 
 ```javascript
 elixir(function(mix) {
@@ -288,7 +286,7 @@ Like the `webpack` method, you may customize the location of the input and outpu
     elixir(function(mix) {
         mix.rollup(
             './resources/assets/js/default.js',
-            './webroot/dist'
+            './dist'
         );
     });
 
@@ -297,7 +295,7 @@ Like the `webpack` method, you may customize the location of the input and outpu
 
 If you have multiple JavaScript files that you would like to combine into a single file, you may use the `scripts` method, which provides automatic source maps, concatenation, and minification.
 
-The `scripts` method assumes all paths are relative to the `resources/assets/js` directory, and will place the resulting JavaScript in `webroot/js/all.js` by default:
+The `scripts` method assumes all paths are relative to the `resources/assets/js` directory, and will place the resulting JavaScript in `js/all.js` by default:
 
 ```javascript
 elixir(function(mix) {
@@ -312,16 +310,16 @@ If you need to concatenate multiple sets of scripts into different files, you ma
 
 ```javascript
 elixir(function(mix) {
-    mix.scripts(['default.js', 'controllers.js'], 'webroot/js/default.js')
-       .scripts(['forum.js', 'threads.js'], 'webroot/js/forum.js');
+    mix.scripts(['default.js', 'controllers.js'], 'js/default.js')
+       .scripts(['forum.js', 'threads.js'], 'js/forum.js');
 });
 ```
 
-If you need to combine all of the scripts in a given directory, you may use the `scriptsIn` method. The resulting JavaScript will be placed in `webroot/js/all.js`:
+If you need to combine all of the scripts in a given directory, you may use the `scriptsIn` method. The resulting JavaScript will be placed in `js/all.js`:
 
 ```javascript
 elixir(function(mix) {
-    mix.scriptsIn('webroot/js/some/directory');
+    mix.scriptsIn('js/some/directory');
 });
 ```
 
@@ -335,7 +333,7 @@ The `copy` method may be used to copy files and directories to new locations. Al
 
 ```javascript
 elixir(function(mix) {
-    mix.copy('vendor/foo/bar.css', 'webroot/css/bar.css');
+    mix.copy('vendor/foo/bar.css', 'css/bar.css');
 });
 ```
 
@@ -352,26 +350,11 @@ elixir(function(mix) {
 });
 ```
 
-After generating the versioned file, you may use the [CakePHP Elixir Helper](https://github.com/pfuri/cakephp3-elixir/blob/master/ElixirHelper.php) within your views to load the appropriately hashed asset. You must add the Elixir Helper to your app's helpers array before it will be available:
-
-```php
-class AppView extends View
-{
-    public function initialize()
-    {
-        parent::initialize();
-        $this->loadHelper('Elixir');
-        
-        [...]
-    }
-    
-    [...]
-}
-```
+After generating the versioned file, you may use the [Elixir Helper](https://github.com/pfuri/basic-elixir/blob/master/ElixirHelper.php) within your views to load the appropriately hashed asset. You must manually copy the Elixir Helper to your application:
 
 The `version` function will automatically determine the current name of the hashed file:
 
-    <link rel="stylesheet" href="<?php echo $this->Elixir->version('css/all.css'); ?>">
+    <link rel="stylesheet" href="<?php echo $elixirHelper->version('css/all.css'); ?>">
 
 #### Versioning Multiple Files
 
@@ -385,9 +368,9 @@ elixir(function(mix) {
 
 Once the files have been versioned, you may use the `elixir` helper function to generate links to the proper hashed files. Remember, you only need to pass the name of the un-hashed file to the `elixir` helper function. The helper will use the un-hashed name to determine the current hashed version of the file:
 
-    <link rel="stylesheet" href="<?php echo $this->Elixir->version('css/all.css'); ?>">
+    <link rel="stylesheet" href="<?php echo $elixirHelper->version('css/all.css'); ?>">
 
-    <script src="<?php echo $this->Elixir->version('js/default.js'); ?>"></script>
+    <script src="<?php echo $elixirHelper->version('js/default.js'); ?>"></script>
 
 <a name="browser-sync"></a>
 ## BrowserSync
