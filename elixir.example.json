@@ -1,8 +1,8 @@
 {
     "assetsPath": "resources/assets",
-    "publicPath": "webroot",
+    "publicPath": "",
     "appPath": "",
-    "viewPath": "src/View",
+    "viewPath": "",
     "notifications": true,
     "css": {
         "folder": "css",
