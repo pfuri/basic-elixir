@@ -28,16 +28,6 @@ ncp(source, destination, options, function (err) {
     console.log("gulpfile.js copied (noclobber) successfully!\n");
 });
 
-source = "ElixirHelper.php";
-destination = "../../src/View/Helper/ElixirHelper.php";
-ncp(source, destination, options, function (err) {
-    if (err) {
-        return console.error(err);
-    }
-    console.log("src/View/Helper/ElixirHelper.php copied (noclobber) successfully!\n");
-});
-
-console.log("\nThank you for using CakePHP Elixir!\n");
-console.log("Don't forget to add 'Elixir' to your controller's helpers array if you want to use versioning!\n")
+console.log("\nThank you for using Basic Elixir!\n");
 console.log("Please report any issues, bugs or feature requests to:");
-console.log("https://github.com/pfuri/cakephp-elixir/issues\n");
+console.log("https://github.com/pfuri/basic-elixir/issues\n");
