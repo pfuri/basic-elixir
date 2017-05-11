@@ -1,7 +1,7 @@
 {
   "name": "basic-elixir",
   "version": "1.0.0",
-  "description": "Elixir Core for basic/non-framework web applications",
+  "description": "Elixir Core for basic / non-framework web applications",
   "main": "index.js",
   "scripts": {
     "postinstall": "node postinstall.js"
