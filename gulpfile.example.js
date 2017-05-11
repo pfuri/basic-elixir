@@ -1,4 +1,4 @@
-const elixir = require('cakephp3-elixir');
+const elixir = require('basic-elixir');
 
 /*
  |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ const elixir = require('cakephp3-elixir');
  */
 elixir(mix => {
         // Example
-		//mix.del(["webroot/build", "webroot/css", "webroot/js"])
+		//mix.del(["build", "css", "js"])
     	//.sass('default.scss').version('css/default.css')
         //.webpack('default.js').version('js/default.js');
 
