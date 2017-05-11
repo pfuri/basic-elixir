@@ -66,7 +66,7 @@ The only remaining step is to install Elixir for basic/non-framework web applica
     "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
     "jquery": "^3.1.0",
-    "basic-elixir": "^1.0.5",
+    "basic-elixir": "^1.0.1",
     "laravel-elixir-del": "^0.1.1",
     "laravel-elixir-webpack-official": "^1.0.2",
     "lodash": "^4.16.2"
