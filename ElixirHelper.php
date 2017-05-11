@@ -1,11 +1,9 @@
 <?php
 
-namespace App\View\Helper;
+// update this namespace to match your namespace structure
+namespace App;
 
-use Cake\View\Helper;
-use Cake\View\StringTemplateTrait;
-
-class ElixirHelper extends Helper {
+class ElixirHelper {
 
     /**
      * Get the path to a versioned Elixir file.
